@@ -16,16 +16,19 @@ var dairy = {
 var list;
 list = [veg, fruit, dairy];
 
+list.push(crackers = {
+  name: 'triskets',
+  price: 2.99
+});
+
 var price = 0;
 list.forEach(function(groceries){
-  console.log(groceries.name);
-  console.log(groceries.price);
+  console.log(groceries.name + " at " + groceries.price);
 
   price += groceries.price;
 });
 
-             
-console.log("total = " + price);
+console.log("total = $" + price.toFixed(2));// toFixed: 0.00
 
 //  attempt to get answers into the html
 
