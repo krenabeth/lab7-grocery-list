@@ -1,78 +1,87 @@
-var veg = {
-  name: 'broccoli',
-  price: 2.00
-};
+// make price a global variable 
+var price;
+//create objects for each item on the list
+function Item (name, price) {
+  this.name = name;
+  this.price = price;
+}
 
-var fruit = {
-  name: 'raspberries',
-  price: 4.50
-};
+var veg = new Item('broccoli', 2)
+var fruit = new Item('raspberries', 4)
+var dairy = new Item('eggs', 3)
 
-var dairy = {
-  name: 'eggs',
-  price: 3.00
-};
 
+// array with objects
 var list;
 list = [veg, fruit, dairy];
 
-list.push(crackers = {
-  name: 'triskets',
-  price: 2.99
-});
 
-var price = 0;
+// add each object's name and price to html
+function shopping() {
+  price = 0;
+
+
 list.forEach(function(groceries){
-  console.log(groceries.name + " at " + groceries.price);
+	document.getElementById("snazzy").innerHTML += "<li>" + groceries.name + "</li>";
+	
+  var priceNum = groceries.price;
+  priceNum = parseInt(priceNum, 10);
 
-  price += groceries.price;
-});
+  document.getElementById("evenSnazzier").innerHTML += "<li>" + priceNum.toFixed(2) + "</li>"; 
+  	price += priceNum;
+  });
 
-console.log("total = $" + price.toFixed(2));// toFixed: 0.00
+// subtotal and tax
+  document.getElementById("subtotal").innerHTML =          
+  "<p>" + "subtotal = " + price.toFixed(2) + "</p>";
+  var tax = 0.06 * price;
 
-//  attempt to get answers into the html
+  document.getElementById("tax").innerHTML =          
+  "<p>" + "tax = " + tax.toFixed(2) + "</p>";
+  var total = price + tax;
 
-// 		"<li></li>" +
-// 		"<li></li>" +
-// 	"</ul>";
-// document.getElementById("evenSnazzier").innerHTML =
-// 	"<ul id='bucks'>" +
-// 		"<li></li>" +
-// 		"<li></li>" +
-// 		"<li></li>" +
-// 	"</ul>";
+// add row for total price
+  document.getElementById("total").innerHTML =          
+  "<h2>" + "Total = " + total + "</h2>";
+}
+shopping();
 
 
-// var veg = {
-//   name: 'broccoli',
-//   price: 2.00
-// };
+// User adds items to the list - input variables addItem and addPrice
 
-// var fruit = {
-//   name: 'raspberries',
-//   price: 4.50
-// };
+function addOn() {
 
-// var dairy = {
-//   name: 'eggs',
-//   price: 3.00
-// };
+    var myList = document.getElementById('snazzy');
+    var newContent = document.createElement('li');
+    newContent.innerHTML = document.getElementById('addItem').value;
 
-// var list;
-// list = [veg, fruit, dairy];
+    var myList2 = document.getElementById('evenSnazzier');
+    var newContent2 = document.createElement('li');
 
-// var price = 0;
-// list.forEach(function(groceries){
-// 	document.getElementById("snazzy").innerHTML =
-// 	"<ul class='eats'>" + "<li>" + groceries.name + "</li>";
-// 	document.getElementById("evenSnazzier").innerHTML =
-// 	"<ul class='bucks'>" + "<li>" + groceries.price + "</li>"; // what's going on with price?
-//   	price += groceries.price;
-// });
-// document.getElementById("snazzy").innerHTML =
-//  "<h4>Total = </h4>";  
+    var newPrice = document.getElementById('addPrice').value;
+    newPrice = parseInt(newPrice, 10);
+    newContent2.innerHTML = newPrice;
 
-// document.getElementById("evenSnazzier").innerHTML =          
-// "<h4>" + price + "</h4>";
 
+// subtotal and tax - again!
+
+    newSubtotal = price + newPrice;       
+    document.getElementById('subtotal').innerHTML = "<p>" + "subtotal " + newSubtotal + "</p>";
+
+    var tax = 0.06 * newSubtotal;
+
+    document.getElementById("tax").innerHTML =          
+    "<p>" + "tax " + tax + "</p>";
+
+ 
+    newTotal = newSubtotal + tax;
+    document.getElementById('total').innerHTML =         
+    "<h2>" + "Total = " + newTotal + "</h2>";
+
+
+    while (newContent.firstChild) {
+        myList.appendChild(newContent.firstChild) && myList2.appendChild(newContent2.firstChild);
+    }
+
+}
 

@@ -1,31 +1,31 @@
-* {
-	font-family: Comic;
-	font-size: 130%;
+h1, h2, p {
+	font-family: Arial;
 }
 
-#image {
-	position: fixed;
-	opacity: 0.1;
-	width: 500;
-	margin: auto;
+#total {
+	color: red;
 }
 
-li.eats {
+#price {
+	font-style: bold;
+}
+
+h2 {
+	display: inline-block;
+}
+
+.left, #middle {
+	width: 45%;
+	float: center;
 	font-family: cursive;
+	font-size: 18pt;
 }
 
-
-
-li.bucks {
-	color: #797979;
+#middle {
+	border-bottom: 2px double black;
 }
 
-/* food side of the list */
-#snazzy {
-
-}
-
-/*price side of the list */
-#evenSnazzier {
-
+ul {
+	list-style-type: none;
+	display: inline-block;
 }

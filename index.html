@@ -4,21 +4,39 @@
 
 	<head>
 		<title>List for the Farmers Market</title>
-
+		<link type="text/css" rel="stylesheet" href="styles.css"/>
 	</head>
 
 	<body>
+		<header>
+			<h1>List for the Farmers Market</h1>
+		</header>
 		<div>
-			<h2>List for the Farmers Market</h2><h3>Open the console for your grocery list!</h3>
-
-			<img src="http://images.all-free-download.com/images/graphiclarge/fruits_and_vegetables_a_collection_of_picture_167168.jpg" alt="fruits and vegetables" id="image" />
-			<script src="script.js"></script>
-			<div id="snazzy">
-			</div>
-
-			<div id="evenSnazzier">
-			</div>
+			<form action="#" method="get">Add item:
+				<input type="text" id="addItem" />
+				Price: <input type="text" id="addPrice"/>
+				<input type="submit" value="Submit" id="submit" onclick="addOn(); return false" />
+			</form>
 		</div>
+
+ 		<div class="left">
+			<ul id="snazzy"></ul>
+			<ul id="evenSnazzier"></ul>
+
+		</div>
+
+		<div id="middle">
+			<p id="subtotal"></p>
+			<p id="tax"></p>
+		</div>
+
+		<div class="totals">
+			<h2 id="total"></h2>
+		</div>
+
+
+
+		<script src="script.js"></script>
 	</body>
 
 </html>
