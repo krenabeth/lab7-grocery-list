@@ -48,7 +48,7 @@ shopping();
 
 
 // User adds items to the list - input variables addItem and addPrice
-
+// throw in a nextSibling
 function addOn() {
 
     var myList = document.getElementById('snazzy');

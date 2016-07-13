@@ -15,28 +15,18 @@
 			<form action="#" method="get">Add item:
 				<input type="text" id="addItem" />
 				Price: <input type="text" id="addPrice"/>
-				<input type="submit" value="Submit" id="submit" onclick="addOn(); return false" />
+				<button value="Submit" id="submit" onclick="addOn(); return false">Add</button>
 			</form>
 		</div>
-
- 		<div class="left">
-			<ul id="snazzy"></ul>
-			<ul id="evenSnazzier"></ul>
-
-		</div>
-
-		<div id="middle">
-			<p id="subtotal"></p>
-			<p id="tax"></p>
-		</div>
-
-		<div class="totals">
-			<h2 id="total"></h2>
-		</div>
+		<section id="top"><ul id="list"></ul>
+			<ul id="price"></ul>
+		</section>
+		<section id="total">
+		</section>
 
 
 
-		<script src="script.js"></script>
+		<script src="script2.js"></script>
 	</body>
 
 </html>
